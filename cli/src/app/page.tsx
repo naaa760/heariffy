@@ -29,26 +29,27 @@ export default function LandingPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // simple animated frequency bars for landing page footer
+  // Continuous animated frequency bars
   function AnimatedBars() {
+    const BAR_COUNT = 80;
     const [heights, setHeights] = useState<number[]>(() =>
-      Array.from({ length: 20 }, () => Math.random()),
+      Array.from({ length: BAR_COUNT }, () => Math.random()),
     );
 
     useEffect(() => {
       const id = setInterval(() => {
-        setHeights(Array.from({ length: 20 }, () => Math.random()));
-      }, 3000);
+        setHeights(Array.from({ length: BAR_COUNT }, () => Math.random()));
+      }, 400);
       return () => clearInterval(id);
     }, []);
 
     return (
-      <div className="flex h-24 items-end justify-center space-x-1">
+      <div className="flex h-24 items-end justify-center space-x-0.5">
         {heights.map((h, i) => (
           <div
             key={i}
-            className="w-1 rounded-sm bg-white/70 transition-all duration-1000 ease-in-out"
-            style={{ height: `${20 + h * 80}%` }}
+            className="rounded-sm bg-white/70 transition-all duration-400 ease-linear"
+            style={{ height: `${20 + h * 80}%`, width: "2px" }}
           />
         ))}
       </div>
@@ -204,7 +205,7 @@ export default function LandingPage() {
           </div>
 
           {/* Bottom animated frequency bars */}
-          <div className="w-full max-w-md rounded-2xl bg-white/5 p-6 backdrop-blur-sm">
+          <div className="w-full max-w-sm rounded-xl bg-white/5 p-4 backdrop-blur-sm">
             <AnimatedBars />
           </div>
         </div>
