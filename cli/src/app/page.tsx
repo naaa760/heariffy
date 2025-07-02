@@ -3,220 +3,155 @@
 import Link from "next/link";
 import { SignInButton, SignUpButton, UserButton, useAuth } from "@clerk/nextjs";
 import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 
 export default function LandingPage() {
   const { isSignedIn } = useAuth();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      {/* Navigation */}
-      <nav className="border-b bg-white/50 backdrop-blur-sm">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
-            <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900">Heariffy</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              {isSignedIn ? (
-                <div className="flex items-center space-x-4">
-                  <Link href="/app">
-                    <Button variant="ghost">Dashboard</Button>
-                  </Link>
-                  <UserButton afterSignOutUrl="/" />
-                </div>
-              ) : (
-                <>
-                  <SignInButton mode="modal">
-                    <Button variant="ghost">Log In</Button>
-                  </SignInButton>
-                  <SignUpButton mode="modal">
-                    <Button>Sign Up</Button>
-                  </SignUpButton>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      </nav>
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+      >
+        <source src="/vid.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
 
-      {/* Hero Section */}
-      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl">
-            AI-Powered
-            <span className="block text-blue-600">Audio Analysis</span>
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/30"></div>
+
+      {/* Content */}
+      <div className="relative z-10 min-h-screen">
+        {/* Simple header with auth buttons */}
+        <div className="absolute top-6 right-6">
+          {isSignedIn ? (
+            <UserButton afterSignOutUrl="/" />
+          ) : (
+            <div className="flex items-center space-x-3">
+              <SignInButton mode="modal">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-white/80 hover:text-white"
+                >
+                  Log In
+                </Button>
+              </SignInButton>
+              <SignUpButton mode="modal">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-white/80 hover:text-white"
+                >
+                  Sign Up
+                </Button>
+              </SignUpButton>
+            </div>
+          )}
+        </div>
+
+        {/* Main content */}
+        <div className="flex min-h-screen flex-col items-center justify-center px-4">
+          {/* Logo */}
+          <div className="mb-16 flex items-center space-x-2">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-black">
+              <span className="text-sm">🎵</span>
+            </div>
+            <span className="text-2xl font-semibold text-white">Heariffy</span>
+          </div>
+
+          {/* Main headline */}
+          <h1 className="mb-8 text-center text-6xl font-light tracking-tight text-white">
+            Analyze audio with AI
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-xl text-gray-600">
-            Upload any audio file and watch our advanced CNN model analyze and
-            classify sounds in real-time with beautiful visualizations.
-          </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
+
+          {/* Subtitle and CTA */}
+          <div className="mb-16 text-center">
+            <p className="mb-6 text-white/80">
+              Early access for
+              <br />
+              audio enthusiasts
+            </p>
+
             {isSignedIn ? (
               <Link href="/app">
-                <Button size="lg" className="px-8 py-3 text-lg">
-                  Go to Dashboard
+                <Button
+                  size="lg"
+                  className="rounded-full bg-white px-8 py-3 text-black hover:bg-white/90"
+                >
+                  Open Heariffy
                 </Button>
               </Link>
             ) : (
               <SignUpButton mode="modal">
-                <Button size="lg" className="px-8 py-3 text-lg">
-                  Get Started Free
+                <Button
+                  size="lg"
+                  className="rounded-full bg-white px-8 py-3 text-black hover:bg-white/90"
+                >
+                  Download Heariffy
                 </Button>
               </SignUpButton>
             )}
-            <Link href="/app">
-              <Button variant="outline" size="lg" className="px-8 py-3 text-lg">
-                Try Demo Now
-              </Button>
-            </Link>
           </div>
-        </div>
 
-        {/* Features Grid */}
-        <div className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <Card className="border-0 shadow-lg">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                🎵 <span>Real-time Analysis</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600">
-                Upload WAV files and get instant AI-powered audio classification
-                with confidence scores and detailed visualizations.
-              </p>
-            </CardContent>
-          </Card>
+          {/* Secondary CTA */}
+          <div className="mb-16">
+            <p className="text-center text-white/70">
+              Want to try a demo?{" "}
+              <Link href="/app" className="text-white hover:underline">
+                Try it now →
+              </Link>
+            </p>
+          </div>
 
-          <Card className="border-0 shadow-lg">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                🧠 <span>CNN Visualization</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600">
-                See exactly how our neural network processes your audio with
-                interactive feature maps and layer visualizations.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="border-0 shadow-lg">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                📊 <span>50+ Sound Classes</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600">
-                Recognize everything from animal sounds to mechanical noises
-                with our ESC-50 trained model.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Demo Preview */}
-        <div className="mt-20">
-          <h2 className="mb-10 text-center text-3xl font-bold text-gray-900">
-            See It In Action
-          </h2>
-          <div className="mx-auto max-w-4xl">
-            <Card className="border-0 shadow-2xl">
-              <CardContent className="p-8">
-                <div className="flex aspect-video items-center justify-center rounded-lg bg-gradient-to-br from-blue-100 to-purple-100">
-                  <div className="text-center">
-                    <div className="mb-4 text-6xl">🎵</div>
-                    <h3 className="mb-2 text-2xl font-semibold text-gray-800">
-                      Interactive Audio Visualizer
-                    </h3>
-                    <p className="mb-6 text-gray-600">
-                      Upload an audio file to see real-time CNN analysis
-                    </p>
-                    <Link href="/app">
-                      <Button size="lg">Try It Now →</Button>
-                    </Link>
-                  </div>
+          {/* Bottom interactive area */}
+          <div className="w-full max-w-2xl">
+            <div className="rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-sm">
+              <div className="flex items-center space-x-4">
+                <div className="rounded-lg bg-white/20 p-3">
+                  <svg
+                    className="h-5 w-5 text-white/80"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                    />
+                  </svg>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        {/* How It Works */}
-        <div className="mt-20">
-          <h2 className="mb-10 text-center text-3xl font-bold text-gray-900">
-            How It Works
-          </h2>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
-                <span className="text-2xl">📤</span>
+                <div className="flex-1">
+                  <p className="text-white/80">
+                    Upload audio files or paste URLs
+                  </p>
+                </div>
+                <button className="rounded-full bg-white p-2 text-black hover:bg-white/90">
+                  <svg
+                    className="h-4 w-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    />
+                  </svg>
+                </button>
               </div>
-              <h3 className="mb-2 text-xl font-semibold text-gray-900">
-                Upload Audio
-              </h3>
-              <p className="text-gray-600">
-                Upload any WAV file from your device - music, speech, nature
-                sounds, anything!
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
-                <span className="text-2xl">🤖</span>
-              </div>
-              <h3 className="mb-2 text-xl font-semibold text-gray-900">
-                AI Analysis
-              </h3>
-              <p className="text-gray-600">
-                Our CNN model processes the audio and extracts meaningful
-                features in seconds.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
-                <span className="text-2xl">📊</span>
-              </div>
-              <h3 className="mb-2 text-xl font-semibold text-gray-900">
-                View Results
-              </h3>
-              <p className="text-gray-600">
-                Get predictions, confidence scores, and beautiful neural network
-                visualizations.
-              </p>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="mt-20 border-t bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h3 className="mb-2 text-2xl font-bold text-gray-900">Heariffy</h3>
-            <p className="text-gray-600">
-              Advanced audio analysis powered by artificial intelligence
-            </p>
-            <div className="mt-6 flex justify-center space-x-4">
-              <Link href="/app">
-                <Button variant="ghost">Try Demo</Button>
-              </Link>
-              {!isSignedIn && (
-                <>
-                  <SignUpButton mode="modal">
-                    <Button variant="ghost">Sign Up</Button>
-                  </SignUpButton>
-                  <SignInButton mode="modal">
-                    <Button variant="ghost">Log In</Button>
-                  </SignInButton>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
