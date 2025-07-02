@@ -31,7 +31,7 @@ export default function LandingPage() {
 
   // Continuous animated frequency bars
   function AnimatedBars() {
-    const BAR_COUNT = 80;
+    const BAR_COUNT = 100;
     const [heights, setHeights] = useState<number[]>(() =>
       Array.from({ length: BAR_COUNT }, () => Math.random()),
     );
