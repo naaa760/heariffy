@@ -6,6 +6,7 @@ import { Button } from "~/components/ui/button";
 import { Domine } from "next/font/google";
 import { Dancing_Script } from "next/font/google";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const domine = Domine({
   subsets: ["latin"],
@@ -76,15 +77,16 @@ export default function LandingPage() {
       {/* Content */}
       <div className="relative z-10 min-h-screen">
         {/* Default transparent navbar visible at top */}
-        <div className="absolute top-6 left-1/2 z-10 flex w-[70%] max-w-3xl -translate-x-1/2 items-center justify-between rounded-2xl border border-transparent bg-transparent px-3 py-1.5 backdrop-blur-md">
+        <div className="absolute top-6 left-1/2 z-10 flex w-[60%] max-w-2xl -translate-x-1/2 items-center justify-between rounded-2xl border border-transparent bg-transparent px-2 py-1 backdrop-blur-md">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <img
-              src="/aud.png"
-              alt="Heariffy logo"
-              className="h-12 w-12 rounded-full object-cover"
-            />
-          </Link>
+          <Image
+            src="/aud.png"
+            alt="Heariffy logo"
+            width={80}
+            height={80}
+            priority
+            className="h-10 w-10 rounded-full object-cover"
+          />
 
           {/* Auth Buttons */}
           {isSignedIn ? (
@@ -95,7 +97,7 @@ export default function LandingPage() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-white/80 hover:text-white"
+                  className="font-light text-white/70 hover:bg-transparent hover:text-gray-300"
                 >
                   Log In
                 </Button>
@@ -104,7 +106,7 @@ export default function LandingPage() {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-white/80 hover:text-white"
+                  className="font-light text-white/70 hover:bg-transparent hover:text-gray-300"
                 >
                   Sign Up
                 </Button>
@@ -115,19 +117,17 @@ export default function LandingPage() {
 
         {/* Sticky navbar that fades in on scroll */}
         {showSticky && (
-          <div className="fixed top-4 left-1/2 z-20 w-[70%] max-w-3xl -translate-x-1/2 rounded-2xl border border-transparent bg-transparent px-3 py-1.5 backdrop-blur-md transition-all">
+          <div className="fixed top-4 left-1/2 z-20 w-[60%] max-w-2xl -translate-x-1/2 rounded-2xl border border-transparent bg-transparent px-2 py-1 backdrop-blur-md transition-all">
             <div className="flex items-center justify-between">
               {/* Logo */}
-              <Link href="/" className="flex items-center space-x-2">
-                <img
-                  src="/aud.png"
-                  alt="Heariffy logo"
-                  className="h-12 w-12 rounded-full object-cover"
-                />
-                <span className="text-lg font-semibold text-white">
-                  Heariffy
-                </span>
-              </Link>
+              <Image
+                src="/aud.png"
+                alt="Heariffy logo"
+                width={80}
+                height={80}
+                priority
+                className="h-10 w-10 rounded-full object-cover"
+              />
 
               {/* Auth Buttons */}
               {isSignedIn ? (
@@ -138,7 +138,7 @@ export default function LandingPage() {
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="text-white/80 hover:text-white"
+                      className="font-light text-white/70 hover:bg-transparent hover:text-gray-300"
                     >
                       Log In
                     </Button>
@@ -147,7 +147,7 @@ export default function LandingPage() {
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="text-white/80 hover:text-white"
+                      className="font-light text-white/70 hover:bg-transparent hover:text-gray-300"
                     >
                       Sign Up
                     </Button>
