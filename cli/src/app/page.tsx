@@ -3,6 +3,13 @@
 import Link from "next/link";
 import { SignInButton, SignUpButton, UserButton, useAuth } from "@clerk/nextjs";
 import { Button } from "~/components/ui/button";
+import { Domine } from "next/font/google";
+
+const domine = Domine({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-headline",
+});
 
 export default function LandingPage() {
   const { isSignedIn } = useAuth();
@@ -15,7 +22,7 @@ export default function LandingPage() {
         muted
         loop
         playsInline
-        className="absolute inset-0 h-full w-full object-cover"
+        className="absolute inset-0 h-full w-full object-cover blur-sm"
       >
         <source src="/vid.mp4" type="video/mp4" />
         Your browser does not support the video tag.
@@ -56,16 +63,10 @@ export default function LandingPage() {
 
         {/* Main content */}
         <div className="flex min-h-screen flex-col items-center justify-center px-4">
-          {/* Logo */}
-          <div className="mb-16 flex items-center space-x-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-black">
-              <span className="text-sm">🎵</span>
-            </div>
-            <span className="text-2xl font-semibold text-white">Heariffy</span>
-          </div>
-
           {/* Main headline */}
-          <h1 className="mb-8 text-center text-6xl font-light tracking-tight text-white">
+          <h1
+            className={`mb-8 text-center text-6xl tracking-tight text-white ${domine.className} font-normal`}
+          >
             Analyze audio with AI
           </h1>
 
