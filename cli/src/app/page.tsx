@@ -4,11 +4,18 @@ import Link from "next/link";
 import { SignInButton, SignUpButton, UserButton, useAuth } from "@clerk/nextjs";
 import { Button } from "~/components/ui/button";
 import { Domine } from "next/font/google";
+import { Dancing_Script } from "next/font/google";
 
 const domine = Domine({
   subsets: ["latin"],
   weight: ["400", "700"],
   variable: "--font-headline",
+});
+
+const dancing = Dancing_Script({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-subtitle",
 });
 
 export default function LandingPage() {
@@ -33,8 +40,17 @@ export default function LandingPage() {
 
       {/* Content */}
       <div className="relative z-10 min-h-screen">
-        {/* Simple header with auth buttons */}
-        <div className="absolute top-6 right-6">
+        {/* Transparent rounded navbar */}
+        <div className="absolute top-6 left-1/2 flex w-[90%] max-w-5xl -translate-x-1/2 items-center justify-between rounded-2xl border border-white/20 bg-white/10 px-6 py-3 shadow-sm backdrop-blur-md">
+          {/* Logo */}
+          <div className="flex items-center space-x-2">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-black">
+              <span className="text-sm">🎵</span>
+            </div>
+            <span className="text-lg font-semibold text-white">Heariffy</span>
+          </div>
+
+          {/* Auth Buttons */}
           {isSignedIn ? (
             <UserButton afterSignOutUrl="/" />
           ) : (
@@ -65,17 +81,18 @@ export default function LandingPage() {
         <div className="flex min-h-screen flex-col items-center justify-center px-4">
           {/* Main headline */}
           <h1
-            className={`mb-8 text-center text-6xl tracking-tight text-white ${domine.className} font-normal`}
+            className={`mt-50 mb-8 text-center text-6xl tracking-tight text-white ${domine.className} font-normal`}
           >
             Analyze audio with AI
           </h1>
 
           {/* Subtitle and CTA */}
           <div className="mb-16 text-center">
-            <p className="mb-6 text-white/80">
-              Early access for
-              <br />
-              audio enthusiasts
+            <p
+              className={`mb-6 text-lg text-black italic md:text-xl ${dancing.className}`}
+            >
+              Real-time sound classification powered by deep convolutional
+              neural networks.
             </p>
 
             {isSignedIn ? (
