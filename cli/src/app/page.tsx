@@ -458,6 +458,117 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* CTA + Footer Links section */}
+      <section className="bg-[#F5F3EE] py-16">
+        <div className="mx-auto max-w-7xl px-8">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-4">
+            {/* Left column */}
+            <div className="lg:col-span-1 lg:border-r lg:border-gray-300 lg:pr-8">
+              {/* Top buttons - side by side */}
+              <div className="mb-8 flex flex-wrap gap-3">
+                <button className="min-w-[48%] flex-1 rounded-full bg-[#4A5D23] px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-[#3A4A1A] sm:flex-none sm:px-6 sm:py-2.5 sm:text-sm">
+                  Let&apos;s Chat
+                </button>
+                <button className="min-w-[48%] flex-1 rounded-full border border-gray-400 px-4 py-2 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50 sm:flex-none sm:px-6 sm:py-2.5 sm:text-sm">
+                  Sign In
+                </button>
+              </div>
+
+              {/* Headline */}
+              <h2 className="max-w-xs text-3xl leading-tight font-normal text-[#4A5D23]">
+                Stop leaving your hard-earned money on the table.
+              </h2>
+            </div>
+
+            {/* Right column links */}
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 lg:col-span-3 lg:pl-8">
+              <div>
+                <h3 className="mb-6 text-sm font-medium text-gray-500">
+                  What We Do
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    "Revenue Advisor",
+                    "Ongoing Claims Follow‑up",
+                    "Historical A/R Recovery",
+                    "Bank Reconciliation",
+                  ].map((item) => (
+                    <li key={item}>
+                      <a
+                        href="#"
+                        className="text-sm text-gray-700 hover:text-gray-900"
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="mb-6 text-sm font-medium text-gray-500">
+                  Who We Work With
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    "Healthcare Practices",
+                    "Billing Companies",
+                    "Digital Health Organizations",
+                    "Practice Management Groups",
+                  ].map((item) => (
+                    <li key={item}>
+                      <a
+                        href="#"
+                        className="text-sm text-gray-700 hover:text-gray-900"
+                      >
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="mb-6 text-sm font-medium text-gray-500">
+                  Company
+                </h3>
+                <ul className="space-y-3">
+                  {["Who We Are", "Careers", "Contact Us", "Resources"].map(
+                    (item) => (
+                      <li key={item}>
+                        <a
+                          href="#"
+                          className="text-sm text-gray-700 hover:text-gray-900"
+                        >
+                          {item}
+                        </a>
+                      </li>
+                    ),
+                  )}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Joyful Health Footer Section */}
+      <section className="bg-[#FAF9F6] py-8 md:py-12">
+        <div className="mx-auto max-w-7xl px-4">
+          <h1
+            className={`text-center text-8xl leading-tight text-[#D0D8C0] md:text-9xl lg:text-8xl xl:text-9xl ${dancing.className}`}
+            style={{
+              fontWeight: 400,
+              opacity: 0.9,
+              lineHeight: 0.9,
+              margin: 0,
+            }}
+          >
+            Deep Audio
+          </h1>
+        </div>
+      </section>
     </>
   );
 }
