@@ -398,6 +398,66 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* Statistics section */}
+      <section className="bg-[#FAF9F6] py-24">
+        <div className="mx-auto max-w-7xl px-4 lg:grid lg:grid-cols-[200px_1fr] lg:gap-16">
+          {/* Illustration */}
+          <div className="hidden lg:flex lg:items-start lg:justify-center">
+            <Image
+              src="/dl.png"
+              alt="Girl with binoculars"
+              width={160}
+              height={280}
+              className="h-64 w-auto object-contain"
+            />
+          </div>
+
+          {/* Content */}
+          <div>
+            <h2
+              className={`mb-12 max-w-md text-3xl leading-snug sm:text-4xl lg:text-5xl ${domine.className} text-amber-950`}
+            >
+              You&apos;re probably leaving
+              <br />a lot on the table
+            </h2>
+
+            <div className="space-y-10 divide-y divide-amber-200/60">
+              {[
+                {
+                  value: "15%",
+                  label:
+                    "of submitted claims are denied, creating revenue uncertainty.",
+                },
+                {
+                  value: "65%",
+                  label:
+                    "of denied claims stay unresolved, permanently costing practices.",
+                },
+                {
+                  value: "10–15%",
+                  label:
+                    "of total revenue is recoverable with proper follow‑up.",
+                },
+              ].map((stat, idx) => (
+                <div
+                  key={idx}
+                  className="flex flex-col pt-0 sm:flex-row sm:items-baseline sm:gap-6"
+                >
+                  <span
+                    className={`text-5xl font-semibold sm:text-6xl lg:text-7xl ${domine.className} text-amber-950 sm:min-w-[110px]`}
+                  >
+                    {stat.value}
+                  </span>
+                  <p className="mt-3 text-base font-light text-gray-800 sm:mt-0 sm:text-lg">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
