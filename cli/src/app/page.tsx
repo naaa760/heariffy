@@ -97,7 +97,7 @@ export default function LandingPage() {
         }
       `}</style>
 
-      <div className="base-sm relative min-h-screen overflow-hidden">
+      <div className="base-sm relative min-h-screen overflow-hidden rounded-b-3xl">
         {/* Background Video */}
         <video
           autoPlay
@@ -115,6 +115,9 @@ export default function LandingPage() {
 
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-black/30"></div>
+
+        {/* Soft bottom fade */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/20 to-transparent"></div>
 
         {/* Content */}
         <div className="relative z-10 min-h-screen">
@@ -257,37 +260,42 @@ export default function LandingPage() {
         </div>
       </div>
       {/* White showcase section */}
-      <section className="bg-white py-24 text-center">
-        <h2
-          className={`text-4xl font-light text-gray-500 italic md:text-5xl ${dancing.className}`}
-        >
-          Heariffy is for Listening
-        </h2>
-        <p className="mt-4 text-gray-600 md:text-lg">
-          A partner in every audio workflow
-        </p>
+      <section className="relative overflow-hidden bg-[#FAF9F6] py-24 text-center">
+        {/* Black Snow overlay */}
+        <BlackSnowfall />
 
-        {/* Indicator controls */}
-        <ShowcaseControls />
+        <div className="relative z-10">
+          <h2
+            className={`text-4xl font-light text-gray-500 italic md:text-5xl ${dancing.className}`}
+          >
+            Heariffy is for Listening
+          </h2>
+          <p className="mt-4 text-gray-600 md:text-lg">
+            A partner in every audio workflow
+          </p>
 
-        <p className="mt-10 text-gray-700">
-          <span className="font-medium text-gray-900">
-            An extra set of ears
-          </span>{" "}
-          to always hit your quality bar
-        </p>
+          {/* Indicator controls */}
+          <ShowcaseControls />
 
-        <div className="mx-auto mt-12 w-full max-w-sm overflow-hidden rounded-3xl shadow-lg sm:max-w-lg md:max-w-xl lg:max-w-3xl">
-          <div className="relative bg-[url('/hg.jpg')] bg-cover bg-center">
-            <Slideshow />
-            {/* bottom fade */}
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+          <p className="mt-10 text-gray-700">
+            <span className="font-medium text-gray-900">
+              An extra set of ears
+            </span>{" "}
+            to always hit your quality bar
+          </p>
+
+          <div className="mx-auto mt-12 w-full max-w-sm overflow-hidden rounded-3xl shadow-lg sm:max-w-lg md:max-w-xl lg:max-w-3xl">
+            <div className="relative bg-[url('/hg.jpg')] bg-cover bg-center">
+              <Slideshow />
+              {/* bottom fade */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Claims section */}
-      <section className="bg-white py-24">
+      <section className="bg-[#FAF9F6] py-24 text-center">
         <div className="grid grid-cols-1 overflow-hidden rounded-4xl lg:grid-cols-2">
           {/* Left side - White with content */}
           <div className="bg-white bg-[url('/whi.jpg')] bg-cover bg-center">
@@ -514,6 +522,26 @@ function ShowcaseControls() {
       >
         ›
       </button>
+    </div>
+  );
+}
+
+// Black Snowfall component
+function BlackSnowfall() {
+  const flakes = Array.from({ length: 15 });
+  return (
+    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+      {flakes.map((_, i) => (
+        <span
+          key={i}
+          className="absolute block h-0.5 w-0.5 rounded-full bg-black"
+          style={{
+            left: `${Math.random() * 100}%`,
+            animation: `snow-fall ${8 + Math.random() * 4}s linear infinite`,
+            animationDelay: `${Math.random() * 8}s`,
+          }}
+        />
+      ))}
     </div>
   );
 }
