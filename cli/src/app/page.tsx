@@ -32,7 +32,7 @@ export default function LandingPage() {
 
   // Continuous animated frequency bars
   function AnimatedBars() {
-    const BAR_COUNT = 100;
+    const BAR_COUNT = 600;
     const [heights, setHeights] = useState<number[]>(() =>
       Array.from({ length: BAR_COUNT }, () => Math.random()),
     );
@@ -98,7 +98,7 @@ export default function LandingPage() {
         {/* Content */}
         <div className="relative z-10 min-h-screen">
           {/* Default transparent navbar visible at top */}
-          <div className="absolute top-6 left-1/2 z-10 flex w-[60%] max-w-2xl -translate-x-1/2 items-center justify-between rounded-2xl border border-transparent bg-transparent px-2 py-1 backdrop-blur-md">
+          <div className="absolute top-6 left-1/2 z-10 flex w-[60%] max-w-2xl -translate-x-1/2 items-center justify-between rounded-2xl bg-white/10 px-2 py-1 backdrop-blur-md">
             {/* Logo */}
             <Image
               src="/aud.png"
@@ -138,7 +138,7 @@ export default function LandingPage() {
 
           {/* Sticky navbar that fades in on scroll */}
           {showSticky && (
-            <div className="fixed top-4 left-1/2 z-20 w-[60%] max-w-2xl -translate-x-1/2 rounded-2xl border border-transparent bg-white/10 px-2 py-1">
+            <div className="fixed top-4 left-1/2 z-20 w-[60%] max-w-2xl -translate-x-1/2 rounded-2xl bg-white/10 px-2 py-1 backdrop-blur-md transition-all">
               <div className="flex items-center justify-between">
                 {/* Logo */}
                 <Image
@@ -229,7 +229,7 @@ export default function LandingPage() {
             </div>
 
             {/* Bottom animated frequency bars */}
-            <div className="w-full max-w-sm rounded-xl bg-white/5 p-4 backdrop-blur-sm">
+            <div className="w-full rounded-xl bg-white/5 p-4 backdrop-blur-sm sm:px-8">
               <AnimatedBars />
             </div>
           </div>
@@ -237,12 +237,17 @@ export default function LandingPage() {
       </div>
       {/* White showcase section */}
       <section className="bg-white py-24 text-center">
-        <h2 className="text-4xl font-semibold tracking-tight text-gray-900 md:text-5xl">
+        <h2
+          className={`text-4xl font-light text-gray-500 italic md:text-5xl ${dancing.className}`}
+        >
           Heariffy is for Listening
         </h2>
         <p className="mt-4 text-gray-600 md:text-lg">
           A partner in every audio workflow
         </p>
+
+        {/* Indicator controls */}
+        <ShowcaseControls />
 
         <p className="mt-10 text-gray-700">
           <span className="font-medium text-gray-900">
@@ -251,14 +256,12 @@ export default function LandingPage() {
           to always hit your quality bar
         </p>
 
-        <div className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-3xl shadow-lg">
-          <Image
-            src="/aud.png"
-            alt="Demo screenshot"
-            width={800}
-            height={450}
-            className="w-full object-contain"
-          />
+        <div className="mx-auto mt-12 w-full max-w-sm overflow-hidden rounded-3xl shadow-lg sm:max-w-lg md:max-w-xl lg:max-w-3xl">
+          <div className="relative bg-[url('/hg.jpg')] bg-cover bg-center">
+            <Slideshow />
+            {/* bottom fade */}
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
+          </div>
         </div>
       </section>
     </>
@@ -281,6 +284,110 @@ function Snowfall() {
           }}
         />
       ))}
+    </div>
+  );
+}
+
+// Slideshow cycles through two GIFs endlessly
+function Slideshow() {
+  const images = ["/ye.gif", "/ye1.gif"];
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(
+      () => setIndex((i) => (i + 1) % images.length),
+      4000,
+    );
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div className="relative h-[300px] w-full sm:h-[380px] md:h-[450px]">
+      {images.map((src, i) => (
+        <Image
+          key={src}
+          src={src}
+          alt="showcase"
+          fill
+          className={`object-contain transition-opacity duration-700 ${i === index ? "opacity-100" : "opacity-0"}`}
+        />
+      ))}
+
+      {/* Controls */}
+      <button
+        onClick={() => setIndex((index - 1 + images.length) % images.length)}
+        aria-label="Prev"
+        className="absolute top-1/2 left-2 -translate-y-1/2 rounded-full bg-white/60 p-1 text-gray-700 hover:bg-white/90"
+      >
+        ‹
+      </button>
+      <button
+        onClick={() => setIndex((index + 1) % images.length)}
+        aria-label="Next"
+        className="absolute top-1/2 right-2 -translate-y-1/2 rounded-full bg-white/60 p-1 text-gray-700 hover:bg-white/90"
+      >
+        ›
+      </button>
+
+      {/* Dots */}
+      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 space-x-1">
+        {images.map((_, i) => (
+          <span
+            key={i}
+            className={`h-2 w-2 rounded-full ${i === index ? "bg-gray-800" : "bg-gray-400/50"}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// controls component using slideshow state via context workaround
+function ShowcaseControls() {
+  const [index, setIndex] = useState(0);
+  const images = ["/ye.gif", "/ye1.gif"];
+
+  useEffect(() => {
+    const id = setInterval(
+      () => setIndex((i) => (i + 1) % images.length),
+      4000,
+    );
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div className="mt-8 flex items-center justify-center space-x-4">
+      {/* Prev */}
+      <button
+        onClick={() => setIndex((index - 1 + images.length) % images.length)}
+        aria-label="Prev"
+        className="flex h-7 w-7 items-center justify-center rounded-full border border-gray-300 text-gray-600 hover:bg-gray-100"
+      >
+        ‹
+      </button>
+
+      {/* Dots */}
+      <div className="flex items-center space-x-2">
+        {images.map((_, i) => (
+          <span
+            key={i}
+            className={
+              i === index
+                ? "h-2 w-6 rounded-full bg-gray-900"
+                : "h-2 w-2 rounded-full bg-gray-300"
+            }
+          />
+        ))}
+      </div>
+
+      {/* Next */}
+      <button
+        onClick={() => setIndex((index + 1) % images.length)}
+        aria-label="Next"
+        className="flex h-7 w-7 items-center justify-center rounded-full border border-gray-300 text-gray-600 hover:bg-gray-100"
+      >
+        ›
+      </button>
     </div>
   );
 }
