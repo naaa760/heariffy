@@ -294,7 +294,7 @@ export default function LandingPage() {
         {/* Vertical CTA on section (desktop only) */}
         <div className="pointer-events-none absolute top-1/2 left-8 z-20 hidden -translate-y-1/2 md:block lg:left-20">
           <span
-            className="text-4xl font-medium tracking-tight text-gray-900 lg:text-5xl xl:text-6xl"
+            className="text-4xl font-medium tracking-tight text-amber-600 lg:text-5xl xl:text-6xl"
             style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
           >
             Try the demo and hear the AI in action.
@@ -303,18 +303,18 @@ export default function LandingPage() {
 
         <div className="relative z-20">
           <h2
-            className={`text-4xl font-light text-gray-500 italic md:text-5xl ${dancing.className}`}
+            className={`text-6xl font-light text-amber-950 italic md:text-7xl ${dancing.className}`}
           >
             Heariffy is for Listening
           </h2>
-          <p className="mt-4 text-gray-600 md:text-lg">
+          <p className="mt-4 text-gray-500 md:text-lg">
             A partner in every audio workflow
           </p>
 
           {/* Indicator controls */}
           <ShowcaseControls />
 
-          <p className="mt-10 text-gray-700">
+          <p className="mt-10 text-gray-500">
             <span className="font-medium text-gray-900">
               An extra set of ears
             </span>{" "}
@@ -344,7 +344,7 @@ export default function LandingPage() {
               </h2>
 
               <p
-                className={`mb-8 text-xl leading-normal font-normal text-amber-800 ${dancing.className}`}
+                className={`mb-8 text-2xl leading-normal font-normal text-amber-800 lg:text-3xl ${dancing.className}`}
               >
                 Hand off your revenue recovery to Joyful and see how easy it is
                 to reclaim you&apos;ve already earned.
@@ -458,7 +458,6 @@ export default function LandingPage() {
               You&apos;re probably leaving
               <br />a lot on the table
             </h2>
-
             <div className="space-y-10 divide-y divide-gray-900/60">
               {[
                 {
@@ -486,7 +485,7 @@ export default function LandingPage() {
                   >
                     {stat.value}
                   </span>
-                  <p className="mt-3 text-base font-light text-gray-800 sm:mt-0 sm:text-lg">
+                  <p className="mt-3 text-base font-light text-gray-500 sm:mt-0 sm:text-lg">
                     {stat.label}
                   </p>
                 </div>
