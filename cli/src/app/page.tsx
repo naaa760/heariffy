@@ -32,24 +32,41 @@ export default function LandingPage() {
 
   // Continuous animated frequency bars
   function AnimatedBars() {
-    const BAR_COUNT = 600;
+    // Use more bars to fill the container width completely
+    const [barCount, setBarCount] = useState(150);
     const [heights, setHeights] = useState<number[]>(() =>
-      Array.from({ length: BAR_COUNT }, () => Math.random()),
+      Array.from({ length: barCount }, () => Math.random()),
     );
 
     useEffect(() => {
-      const id = setInterval(() => {
-        setHeights(Array.from({ length: BAR_COUNT }, () => Math.random()));
-      }, 400);
-      return () => clearInterval(id);
+      // Adjust bar count based on screen size to fill the width
+      const updateBarCount = () => {
+        const width = window.innerWidth;
+        // Calculate bars needed to fill width: each bar is 2px + 2px gap = 4px total
+        const containerWidth = Math.min(width * 0.9, 800); // approximate container width
+        const newCount = Math.floor(containerWidth / 4);
+        setBarCount(newCount);
+        setHeights(Array.from({ length: newCount }, () => Math.random()));
+      };
+
+      updateBarCount();
+      window.addEventListener("resize", updateBarCount);
+      return () => window.removeEventListener("resize", updateBarCount);
     }, []);
 
+    useEffect(() => {
+      const id = setInterval(() => {
+        setHeights(Array.from({ length: barCount }, () => Math.random()));
+      }, 800); // Slower refresh for better mobile performance
+      return () => clearInterval(id);
+    }, [barCount]);
+
     return (
-      <div className="flex h-24 items-end justify-center space-x-0.5">
+      <div className="flex h-24 items-end justify-center space-x-0.5 overflow-hidden">
         {heights.map((h, i) => (
           <div
             key={i}
-            className="rounded-sm bg-white/70 transition-all duration-400 ease-linear"
+            className="rounded-sm bg-white/70 transition-all duration-300 ease-in-out"
             style={{ height: `${20 + h * 80}%`, width: "2px" }}
           />
         ))}
