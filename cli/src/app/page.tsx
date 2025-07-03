@@ -288,109 +288,100 @@ export default function LandingPage() {
 
       {/* Claims section */}
       <section className="bg-white py-24">
-        <div className="mx-auto max-w-7xl px-4">
-          {/* Single card container */}
-          <div className="overflow-hidden rounded-3xl shadow-2xl">
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-              {/* Left side - White with content */}
-              <div className="bg-white p-12 lg:p-16">
-                <h2 className="mb-6 text-4xl font-bold text-gray-800 lg:text-5xl">
-                  Stop Chasing Claims.
-                  <br />
-                  Start Getting Paid.
-                </h2>
-                <p className="mb-8 text-lg text-gray-700">
-                  Hand off your revenue recovery to Joyful and see how easy it
-                  is to reclaim you&apos;ve already earned.
-                </p>
-                <Button className="bg-yellow-400 px-8 py-4 text-lg font-semibold text-black hover:bg-yellow-500">
-                  Get a Free Revenue Assessment
+        <div className="grid grid-cols-1 overflow-hidden rounded-4xl lg:grid-cols-2">
+          {/* Left side - White with content */}
+          <div className="bg-white bg-[url('/whi.jpg')] bg-cover bg-center">
+            <div className="max-w-xl px-4 py-12 lg:px-16 lg:py-16">
+              <h2 className="mb-6 text-4xl leading-tight font-normal text-amber-900 lg:text-5xl">
+                Stop Chasing Claims.
+                <br />
+                Start Getting Paid.
+              </h2>
+              <p className="mb-8 text-lg leading-normal font-normal text-gray-800">
+                Hand off your revenue recovery to Joyful and see how easy it is
+                to reclaim you&apos;ve already earned.
+              </p>
+              <Button className="rounded-md bg-yellow-400 px-6 py-3 text-base font-medium text-black hover:bg-yellow-500">
+                Get a Free Revenue Assessment
+              </Button>
+            </div>
+          </div>
+
+          {/* Right side - cd.png background with layered images - full width */}
+          <div className="relative min-h-[500px] bg-[url('/cd.png')] bg-cover bg-center">
+            {/* Image 1 - Top left area */}
+            <div className="absolute top-6 left-8 w-64 rotate-2 rounded-2xl bg-white p-4 shadow-lg">
+              <div className="mb-2 flex items-center">
+                <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-red-100">
+                  <span className="text-xs text-red-600">⚠</span>
+                </div>
+                <span className="text-xs font-medium text-gray-600">
+                  Outstanding Denials
+                </span>
+              </div>
+              <div className="mb-2 text-2xl font-bold text-gray-900">$120k</div>
+              <div className="h-16 w-full overflow-hidden rounded-lg">
+                <Image
+                  src="/1.png"
+                  alt="Chart 1"
+                  width={240}
+                  height={64}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Image 2 - Top right area */}
+            <div className="absolute top-4 right-12 w-72 -rotate-1 rounded-2xl bg-white p-4 shadow-lg">
+              <div className="mb-2 flex items-center">
+                <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-red-100">
+                  <span className="text-xs text-red-600">📍</span>
+                </div>
+                <span className="text-xs font-medium text-gray-600">
+                  Outstanding Denials
+                </span>
+                <Button
+                  size="sm"
+                  className="ml-auto bg-yellow-400 px-2 py-1 text-xs font-semibold text-black hover:bg-yellow-500"
+                >
+                  Hand off to Joyful →
                 </Button>
               </div>
+              <div className="mb-1 text-2xl font-bold text-gray-900">$350k</div>
+              <p className="mb-2 text-xs text-gray-600">
+                in claims that have not been denied by payers and need immediate
+                follow-up.
+              </p>
+              <div className="h-16 w-full overflow-hidden rounded-lg">
+                <Image
+                  src="/2.png"
+                  alt="Chart 2"
+                  width={280}
+                  height={64}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </div>
 
-              {/* Right side - cd.png background with layered images */}
-              <div className="relative min-h-[500px] bg-[url('/cd.png')] bg-cover bg-center">
-                {/* Image 1 - Top position, slight rotation */}
-                <div className="absolute top-8 right-16 w-64 rotate-2 rounded-2xl bg-white p-4 shadow-lg">
-                  <div className="mb-2 flex items-center">
-                    <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-red-100">
-                      <span className="text-xs text-red-600">⚠</span>
-                    </div>
-                    <span className="text-xs font-medium text-gray-600">
-                      Outstanding Denials
-                    </span>
-                  </div>
-                  <div className="mb-2 text-2xl font-bold text-gray-900">
-                    $120k
-                  </div>
-                  <div className="h-16 w-full overflow-hidden rounded-lg">
-                    <Image
-                      src="/1.png"
-                      alt="Chart 1"
-                      width={240}
-                      height={64}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
+            {/* Image 3 - Bottom center area */}
+            <div className="absolute bottom-8 left-1/2 w-56 -translate-x-1/2 rotate-1 rounded-2xl bg-white p-4 shadow-lg">
+              <div className="mb-2 flex items-center">
+                <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-red-100">
+                  <span className="text-xs text-red-600">⚠</span>
                 </div>
-
-                {/* Image 2 - Center position, opposite rotation */}
-                <div className="absolute top-32 right-8 w-72 -rotate-1 rounded-2xl bg-white p-4 shadow-lg">
-                  <div className="mb-2 flex items-center">
-                    <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-red-100">
-                      <span className="text-xs text-red-600">📍</span>
-                    </div>
-                    <span className="text-xs font-medium text-gray-600">
-                      Outstanding Denials
-                    </span>
-                    <Button
-                      size="sm"
-                      className="ml-auto bg-yellow-400 px-2 py-1 text-xs font-semibold text-black hover:bg-yellow-500"
-                    >
-                      Hand off to Joyful →
-                    </Button>
-                  </div>
-                  <div className="mb-1 text-2xl font-bold text-gray-900">
-                    $350k
-                  </div>
-                  <p className="mb-2 text-xs text-gray-600">
-                    in claims that have not been denied by payers and need
-                    immediate follow-up.
-                  </p>
-                  <div className="h-16 w-full overflow-hidden rounded-lg">
-                    <Image
-                      src="/2.png"
-                      alt="Chart 2"
-                      width={280}
-                      height={64}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                </div>
-
-                {/* Image 3 - Bottom position, slight rotation */}
-                <div className="absolute right-20 bottom-8 w-56 rotate-1 rounded-2xl bg-white p-4 shadow-lg">
-                  <div className="mb-2 flex items-center">
-                    <div className="mr-2 flex h-6 w-6 items-center justify-center rounded-full bg-red-100">
-                      <span className="text-xs text-red-600">⚠</span>
-                    </div>
-                    <span className="text-xs font-medium text-gray-600">
-                      Outstanding Denials
-                    </span>
-                  </div>
-                  <div className="mb-2 text-2xl font-bold text-gray-900">
-                    $60k
-                  </div>
-                  <div className="h-16 w-full overflow-hidden rounded-lg">
-                    <Image
-                      src="/3.png"
-                      alt="Chart 3"
-                      width={224}
-                      height={64}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                </div>
+                <span className="text-xs font-medium text-gray-600">
+                  Outstanding Denials
+                </span>
+              </div>
+              <div className="mb-2 text-2xl font-bold text-gray-900">$60k</div>
+              <div className="h-16 w-full overflow-hidden rounded-lg">
+                <Image
+                  src="/3.png"
+                  alt="Chart 3"
+                  width={224}
+                  height={64}
+                  className="h-full w-full object-cover"
+                />
               </div>
             </div>
           </div>
