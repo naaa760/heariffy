@@ -416,13 +416,13 @@ export default function LandingPage() {
           {/* Content */}
           <div>
             <h2
-              className={`mb-12 max-w-md text-3xl leading-snug sm:text-4xl lg:text-5xl ${domine.className} text-amber-950`}
+              className={`mb-12 max-w-md text-2xl leading-snug sm:text-3xl lg:text-4xl ${domine.className} text-amber-950`}
             >
               You&apos;re probably leaving
               <br />a lot on the table
             </h2>
 
-            <div className="space-y-10 divide-y divide-amber-200/60">
+            <div className="space-y-10 divide-y divide-gray-900/60">
               {[
                 {
                   value: "15%",
@@ -445,7 +445,7 @@ export default function LandingPage() {
                   className="flex flex-col pt-0 sm:flex-row sm:items-baseline sm:gap-6"
                 >
                   <span
-                    className={`text-5xl font-semibold sm:text-6xl lg:text-7xl ${domine.className} text-amber-950 sm:min-w-[110px]`}
+                    className={`text-3xl font-semibold sm:text-4xl lg:text-5xl ${domine.className} text-amber-950 sm:min-w-[110px]`}
                   >
                     {stat.value}
                   </span>
