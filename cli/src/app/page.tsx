@@ -557,12 +557,16 @@ export default function LandingPage() {
       <section className="bg-[#FAF9F6] py-8 md:py-12">
         <div className="mx-auto max-w-7xl px-4">
           <h1
-            className={`text-center text-8xl leading-tight text-[#D0D8C0] md:text-9xl lg:text-8xl xl:text-9xl ${dancing.className}`}
+            className={`text-center text-8xl leading-tight text-[#96a37d] md:text-9xl lg:text-8xl xl:text-9xl ${dancing.className}`}
             style={{
               fontWeight: 400,
               opacity: 0.9,
               lineHeight: 0.9,
               margin: 0,
+              WebkitMaskImage:
+                "linear-gradient(to top, transparent 0%, black 45%, black 100%)",
+              maskImage:
+                "linear-gradient(to top, transparent 0%, black 45%, black 100%)",
             }}
           >
             Deep Audio
