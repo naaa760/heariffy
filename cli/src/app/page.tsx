@@ -42,14 +42,14 @@ export default function LandingPage() {
       // Adjust bar count based on screen size to fill the width
       const updateBarCount = () => {
         const width = window.innerWidth;
-        // Calculate bars needed to fill width: each bar is 2px + 2px gap = 4px total
+        // Calculate bars needed to fill width: each bar is 1.5px + 2px gap = 3.5px total
         // Use a more generous calculation to ensure full coverage
         const containerWidth =
           width > 1024 ? width * 0.8 : width > 640 ? width * 0.85 : width * 0.9;
-        const newCount = Math.floor(containerWidth / 3.5); // Slightly tighter spacing
-        setBarCount(Math.max(newCount, 100)); // Minimum 100 bars
+        const newCount = Math.floor(containerWidth / 2.5); // Adjusted for thinner bars
+        setBarCount(Math.max(newCount, 150)); // Increased minimum for thinner bars
         setHeights(
-          Array.from({ length: Math.max(newCount, 100) }, () => Math.random()),
+          Array.from({ length: Math.max(newCount, 150) }, () => Math.random()),
         );
       };
 
@@ -66,12 +66,12 @@ export default function LandingPage() {
     }, [barCount]);
 
     return (
-      <div className="flex h-24 items-end justify-center space-x-0.5 overflow-hidden">
+      <div className="flex h-16 items-end justify-center space-x-0.5 overflow-hidden">
         {heights.map((h, i) => (
           <div
             key={i}
             className="rounded-sm bg-white/70 transition-all duration-300 ease-in-out"
-            style={{ height: `${20 + h * 80}%`, width: "2px" }}
+            style={{ height: `${15 + h * 60}%`, width: "1.5px" }}
           />
         ))}
       </div>
