@@ -43,10 +43,14 @@ export default function LandingPage() {
       const updateBarCount = () => {
         const width = window.innerWidth;
         // Calculate bars needed to fill width: each bar is 2px + 2px gap = 4px total
-        const containerWidth = Math.min(width * 0.9, 800); // approximate container width
-        const newCount = Math.floor(containerWidth / 4);
-        setBarCount(newCount);
-        setHeights(Array.from({ length: newCount }, () => Math.random()));
+        // Use a more generous calculation to ensure full coverage
+        const containerWidth =
+          width > 1024 ? width * 0.8 : width > 640 ? width * 0.85 : width * 0.9;
+        const newCount = Math.floor(containerWidth / 3.5); // Slightly tighter spacing
+        setBarCount(Math.max(newCount, 100)); // Minimum 100 bars
+        setHeights(
+          Array.from({ length: Math.max(newCount, 100) }, () => Math.random()),
+        );
       };
 
       updateBarCount();
