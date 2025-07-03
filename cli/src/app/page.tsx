@@ -467,7 +467,7 @@ export default function LandingPage() {
             <div className="lg:col-span-1 lg:border-r lg:border-gray-300 lg:pr-8">
               {/* Top buttons - side by side */}
               <div className="mb-8 flex flex-wrap gap-3">
-                <button className="min-w-[48%] flex-1 rounded-full bg-[#4A5D23] px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-[#3A4A1A] sm:flex-none sm:px-6 sm:py-2.5 sm:text-sm">
+                <button className="min-w-[48%] flex-1 rounded-full bg-amber-950 px-4 py-2 text-xs font-medium text-white transition-colors hover:bg-[#3A4A1A] sm:flex-none sm:px-6 sm:py-2.5 sm:text-sm">
                   Let&apos;s Chat
                 </button>
                 <button className="min-w-[48%] flex-1 rounded-full border border-gray-400 px-4 py-2 text-xs font-medium text-gray-700 transition-colors hover:bg-gray-50 sm:flex-none sm:px-6 sm:py-2.5 sm:text-sm">
@@ -476,7 +476,7 @@ export default function LandingPage() {
               </div>
 
               {/* Headline */}
-              <h2 className="max-w-xs text-3xl leading-tight font-normal text-[#4A5D23]">
+              <h2 className="max-w-xs text-3xl leading-tight font-normal text-amber-950">
                 Stop leaving your hard-earned money on the table.
               </h2>
             </div>
@@ -553,11 +553,10 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Joyful Health Footer Section */}
       <section className="bg-[#FAF9F6] py-8 md:py-12">
         <div className="mx-auto max-w-7xl px-4">
           <h1
-            className={`text-center text-8xl leading-tight text-[#96a37d] md:text-9xl lg:text-8xl xl:text-9xl ${dancing.className}`}
+            className={`text-center text-8xl leading-tight text-amber-950 md:text-9xl lg:text-8xl xl:text-9xl ${dancing.className}`}
             style={{
               fontWeight: 400,
               opacity: 0.9,

@@ -179,7 +179,7 @@ export default function AppPage() {
     : { main: [], internals: {} };
 
   return (
-    <div className="min-h-screen bg-stone-50">
+    <div className="min-h-screen bg-gradient-to-b from-white via-stone-50 to-stone-100">
       {/* Navigation Bar */}
       <nav className="sticky top-4 z-20 mx-auto w-[92%] rounded-full bg-white/30 px-4 py-2 shadow-md backdrop-blur-lg sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
@@ -288,7 +288,7 @@ export default function AppPage() {
                         </div>
                         <Progress
                           value={pred.confidence * 100}
-                          className="h-2"
+                          className="h-2 bg-stone-200"
                         />
                       </div>
                     ))}
