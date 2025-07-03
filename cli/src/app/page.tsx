@@ -338,16 +338,15 @@ export default function LandingPage() {
           <div className="bg-white bg-[url('/whi.jpg')] bg-cover bg-center">
             <div className="max-w-xl px-4 py-12 lg:px-16 lg:py-16">
               <h2 className="mb-6 font-serif text-4xl leading-tight font-medium text-amber-950 lg:text-5xl">
-                Stop Chasing Claims.
+                Deep learning meets sound
                 <br />
-                Start Getting Paid.
+                classify audio events with confidence
               </h2>
 
               <p
                 className={`mb-8 text-2xl leading-normal font-normal text-amber-800 lg:text-3xl ${dancing.className}`}
               >
-                Hand off your revenue recovery to Joyful and see how easy it is
-                to reclaim you&apos;ve already earned.
+                Serverless GPU inference with lightning-fast response times.
               </p>
               <Button className="rounded-md bg-yellow-500 px-6 py-3 text-base font-medium text-black hover:bg-yellow-300">
                 Get a Free Revenue Assessment
@@ -364,10 +363,10 @@ export default function LandingPage() {
                   <span className="text-xs text-red-600">⚠</span>
                 </div>
                 <span className="text-xs font-medium text-gray-600">
-                  Outstanding Denials
+                  Real-time audio classification
                 </span>
               </div>
-              <div className="mb-2 text-2xl font-bold text-gray-900">$120k</div>
+
               <div className="h-16 w-full overflow-hidden rounded-lg">
                 <Image
                   src="/1.png"
@@ -386,7 +385,7 @@ export default function LandingPage() {
                   <span className="text-xs text-red-600">📍</span>
                 </div>
                 <span className="text-xs font-medium text-gray-600">
-                  Outstanding Denials
+                  Real-time audio classification
                 </span>
                 <Button
                   size="sm"
@@ -395,7 +394,7 @@ export default function LandingPage() {
                   Hand off to Joyful →
                 </Button>
               </div>
-              <div className="mb-1 text-2xl font-bold text-gray-900">$350k</div>
+
               <p className="mb-2 text-xs text-gray-600">
                 in claims that have not been denied by payers and need immediate
                 follow-up.
@@ -418,10 +417,10 @@ export default function LandingPage() {
                   <span className="text-xs text-red-600">⚠</span>
                 </div>
                 <span className="text-xs font-medium text-gray-600">
-                  Outstanding Denials
+                  Real-time audio classification
                 </span>
               </div>
-              <div className="mb-2 text-2xl font-bold text-gray-900">$60k</div>
+
               <div className="h-16 w-full overflow-hidden rounded-lg">
                 <Image
                   src="/3.png"
@@ -453,27 +452,27 @@ export default function LandingPage() {
           {/* Content */}
           <div>
             <h2
-              className={`mb-12 max-w-md text-2xl leading-snug sm:text-3xl lg:text-4xl ${domine.className} text-amber-950`}
+              className={`mb-12 max-w-md text-xl leading-snug sm:text-2xl lg:text-3xl ${domine.className} text-amber-950`}
             >
-              You&apos;re probably leaving
-              <br />a lot on the table
+              Real-time sound classification powered by deep convolutional
+              neural networks.
             </h2>
             <div className="space-y-10 divide-y divide-gray-900/60">
               {[
                 {
                   value: "15%",
                   label:
-                    "of submitted claims are denied, creating revenue uncertainty.",
+                    "From waveform to prediction a full-stack audio recognition system.",
                 },
                 {
                   value: "65%",
                   label:
-                    "of denied claims stay unresolved, permanently costing practices.",
+                    "Deep learning meets sound classify audio events with confidence.",
                 },
                 {
                   value: "10–15%",
                   label:
-                    "of total revenue is recoverable with proper follow‑up.",
+                    "Converts audio to spectrogram images for CNN-based classification.",
                 },
               ].map((stat, idx) => (
                 <div
@@ -512,8 +511,11 @@ export default function LandingPage() {
               </div>
 
               {/* Headline */}
-              <h2 className="max-w-xs text-3xl leading-tight font-normal text-amber-950">
-                Stop leaving your hard-earned money on the table.
+              <h2
+                className={`max-w-xs text-xl leading-tight font-normal text-amber-950 ${dancing.className}`}
+              >
+                Displays real-time classification results with confidence
+                scores.
               </h2>
             </div>
 
