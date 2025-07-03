@@ -264,7 +264,27 @@ export default function LandingPage() {
         {/* Black Snow overlay */}
         <BlackSnowfall />
 
-        <div className="relative z-10">
+        {/* Dot grid background overlay */}
+        <div
+          className="pointer-events-none absolute inset-0 z-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(rgba(0,0,0,0.25) 1px, transparent 1px)",
+            backgroundSize: "22px 22px",
+          }}
+        />
+
+        {/* Vertical CTA on section (desktop only) */}
+        <div className="pointer-events-none absolute top-1/2 left-8 z-20 hidden -translate-y-1/2 md:block lg:left-20">
+          <span
+            className="text-4xl font-medium tracking-tight text-gray-900 lg:text-5xl xl:text-6xl"
+            style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
+          >
+            Try the demo and hear the AI in action.
+          </span>
+        </div>
+
+        <div className="relative z-20">
           <h2
             className={`text-4xl font-light text-gray-500 italic md:text-5xl ${dancing.className}`}
           >
@@ -284,7 +304,7 @@ export default function LandingPage() {
             to always hit your quality bar
           </p>
 
-          <div className="mx-auto mt-12 w-full max-w-sm overflow-hidden rounded-3xl shadow-lg sm:max-w-lg md:max-w-xl lg:max-w-3xl">
+          <div className="relative mx-auto mt-12 w-full max-w-sm overflow-hidden rounded-3xl shadow-lg sm:max-w-lg md:max-w-xl lg:max-w-3xl">
             <div className="relative bg-[url('/hg.jpg')] bg-cover bg-center">
               <Slideshow />
               {/* bottom fade */}
