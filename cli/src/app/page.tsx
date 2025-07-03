@@ -292,11 +292,12 @@ export default function LandingPage() {
           {/* Left side - White with content */}
           <div className="bg-white bg-[url('/whi.jpg')] bg-cover bg-center">
             <div className="max-w-xl px-4 py-12 lg:px-16 lg:py-16">
-              <h2 className="mb-6 text-4xl leading-tight font-normal text-amber-900 lg:text-5xl">
+              <h2 className="mb-6 font-serif text-4xl leading-tight font-medium text-amber-950 lg:text-5xl">
                 Stop Chasing Claims.
                 <br />
                 Start Getting Paid.
               </h2>
+
               <p className="mb-8 text-lg leading-normal font-normal text-gray-800">
                 Hand off your revenue recovery to Joyful and see how easy it is
                 to reclaim you&apos;ve already earned.
