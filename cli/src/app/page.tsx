@@ -138,7 +138,7 @@ export default function LandingPage() {
 
           {/* Sticky navbar that fades in on scroll */}
           {showSticky && (
-            <div className="fixed top-4 left-1/2 z-20 w-[60%] max-w-2xl -translate-x-1/2 rounded-2xl border border-transparent bg-transparent px-2 py-1 backdrop-blur-md transition-all">
+            <div className="fixed top-4 left-1/2 z-20 w-[60%] max-w-2xl -translate-x-1/2 rounded-2xl border border-transparent bg-white/10 px-2 py-1">
               <div className="flex items-center justify-between">
                 {/* Logo */}
                 <Image
