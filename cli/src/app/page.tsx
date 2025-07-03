@@ -291,10 +291,10 @@ export default function LandingPage() {
           }}
         />
 
-        {/* Vertical CTA on section (desktop only) */}
-        <div className="pointer-events-none absolute top-1/2 left-8 z-20 hidden -translate-y-1/2 md:block lg:left-20">
+        {/* Vertical CTA */}
+        <div className="pointer-events-none absolute top-1/2 left-4 z-20 -translate-y-1/2 md:left-8">
           <span
-            className="text-4xl font-medium tracking-tight text-amber-600 lg:text-5xl xl:text-6xl"
+            className={`text-3xl font-medium tracking-tight text-amber-600 sm:text-4xl lg:text-5xl xl:text-6xl ${domine.className}`}
             style={{ writingMode: "vertical-rl", transform: "rotate(180deg)" }}
           >
             Try the demo and hear the AI in action.
@@ -440,13 +440,13 @@ export default function LandingPage() {
       <section className="bg-[#FAF9F6] py-24">
         <div className="mx-auto max-w-7xl px-4 lg:grid lg:grid-cols-[200px_1fr] lg:gap-16">
           {/* Illustration */}
-          <div className="hidden lg:flex lg:items-start lg:justify-center">
+          <div className="mb-12 flex items-center justify-center lg:mb-0 lg:items-start">
             <Image
               src="/dl.png"
               alt="Girl with binoculars"
               width={160}
               height={280}
-              className="h-64 w-auto object-contain"
+              className="h-48 w-auto object-contain sm:h-56 lg:h-64"
             />
           </div>
 
