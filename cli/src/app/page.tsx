@@ -260,7 +260,7 @@ export default function LandingPage() {
         </div>
       </div>
       {/* White showcase section */}
-      <section className="relative overflow-hidden bg-[#FAF9F6] py-24 text-center">
+      <section className="relative overflow-hidden bg-[url('/kk.jpg')] bg-cover bg-center bg-no-repeat py-24 text-center">
         {/* Black Snow overlay */}
         <BlackSnowfall />
 
