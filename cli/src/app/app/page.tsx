@@ -181,14 +181,16 @@ export default function AppPage() {
   return (
     <div className="min-h-screen bg-stone-50">
       {/* Navigation Bar */}
-      <nav className="sticky top-0 z-10 border-b bg-white/80 backdrop-blur-sm">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
+      <nav className="sticky top-4 z-20 mx-auto w-[92%] rounded-full bg-white/30 px-4 py-2 shadow-md backdrop-blur-lg sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex h-12 items-center justify-between">
             <div className="flex items-center space-x-8">
               <Link href="/">
-                <h1 className="text-2xl font-bold text-gray-900">Heariffy</h1>
+                <h1 className="text-2xl font-semibold text-gray-800">
+                  Heariffy
+                </h1>
               </Link>
-              <span className="text-sm text-gray-600">
+              <span className="hidden text-sm text-gray-600 md:inline">
                 Audio Analysis Dashboard
               </span>
             </div>
