@@ -58,161 +58,229 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      {/* Background Video */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover"
-      >
-        <source src="/vid.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+    <>
+      {/* Snowfall keyframes style */}
+      <style jsx global>{`
+        @keyframes snow-fall {
+          0% {
+            transform: translateY(-10px);
+            opacity: 0;
+          }
+          10% {
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(110vh);
+            opacity: 0;
+          }
+        }
+      `}</style>
 
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-black/30"></div>
+      <div className="base-sm relative min-h-screen overflow-hidden">
+        {/* Background Video */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src="/vid.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
-      {/* Content */}
-      <div className="relative z-10 min-h-screen">
-        {/* Default transparent navbar visible at top */}
-        <div className="absolute top-6 left-1/2 z-10 flex w-[60%] max-w-2xl -translate-x-1/2 items-center justify-between rounded-2xl border border-transparent bg-transparent px-2 py-1 backdrop-blur-md">
-          {/* Logo */}
-          <Image
-            src="/aud.png"
-            alt="Heariffy logo"
-            width={80}
-            height={80}
-            priority
-            className="h-10 w-10 rounded-full object-cover"
-          />
+        {/* Snow overlay */}
+        <Snowfall />
 
-          {/* Auth Buttons */}
-          {isSignedIn ? (
-            <UserButton afterSignOutUrl="/" />
-          ) : (
-            <div className="flex items-center space-x-3">
-              <SignInButton mode="modal">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="font-light text-white/70 hover:bg-transparent hover:text-gray-300"
-                >
-                  Log In
-                </Button>
-              </SignInButton>
-              <SignUpButton mode="modal">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="font-light text-white/70 hover:bg-transparent hover:text-gray-300"
-                >
-                  Sign Up
-                </Button>
-              </SignUpButton>
-            </div>
-          )}
-        </div>
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/30"></div>
 
-        {/* Sticky navbar that fades in on scroll */}
-        {showSticky && (
-          <div className="fixed top-4 left-1/2 z-20 w-[60%] max-w-2xl -translate-x-1/2 rounded-2xl border border-transparent bg-transparent px-2 py-1 backdrop-blur-md transition-all">
-            <div className="flex items-center justify-between">
-              {/* Logo */}
-              <Image
-                src="/aud.png"
-                alt="Heariffy logo"
-                width={80}
-                height={80}
-                priority
-                className="h-10 w-10 rounded-full object-cover"
-              />
+        {/* Content */}
+        <div className="relative z-10 min-h-screen">
+          {/* Default transparent navbar visible at top */}
+          <div className="absolute top-6 left-1/2 z-10 flex w-[60%] max-w-2xl -translate-x-1/2 items-center justify-between rounded-2xl border border-transparent bg-transparent px-2 py-1 backdrop-blur-md">
+            {/* Logo */}
+            <Image
+              src="/aud.png"
+              alt="Heariffy logo"
+              width={80}
+              height={80}
+              priority
+              className="h-10 w-10 rounded-full object-cover"
+            />
 
-              {/* Auth Buttons */}
-              {isSignedIn ? (
-                <UserButton afterSignOutUrl="/" />
-              ) : (
-                <div className="flex items-center space-x-3">
-                  <SignInButton mode="modal">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="font-light text-white/70 hover:bg-transparent hover:text-gray-300"
-                    >
-                      Log In
-                    </Button>
-                  </SignInButton>
-                  <SignUpButton mode="modal">
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="font-light text-white/70 hover:bg-transparent hover:text-gray-300"
-                    >
-                      Sign Up
-                    </Button>
-                  </SignUpButton>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* Main content */}
-        <div className="flex min-h-screen flex-col items-center justify-center px-4">
-          {/* Main headline */}
-          <h1
-            className={`mt-50 mb-8 text-center text-6xl tracking-tight text-white ${domine.className} font-normal`}
-          >
-            Analyze audio with AI
-          </h1>
-
-          {/* Subtitle and CTA */}
-          <div className="mb-16 text-center">
-            <p
-              className={`mb-6 text-lg text-gray-900 italic md:text-xl ${dancing.className}`}
-            >
-              Real-time sound classification powered by deep convolutional
-              neural networks.
-            </p>
-
+            {/* Auth Buttons */}
             {isSignedIn ? (
-              <Link href="/app">
-                <Button
-                  size="lg"
-                  className="rounded-full border border-white bg-transparent px-8 py-3 text-white transition hover:bg-white/10"
-                >
-                  Open Heariffy
-                </Button>
-              </Link>
+              <UserButton afterSignOutUrl="/" />
             ) : (
-              <SignUpButton mode="modal">
-                <Button
-                  size="lg"
-                  className="rounded-full border border-white bg-transparent px-8 py-3 text-white transition hover:bg-white/10"
-                >
-                  Download Heariffy
-                </Button>
-              </SignUpButton>
+              <div className="flex items-center space-x-3">
+                <SignInButton mode="modal">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="font-light text-gray-800 hover:bg-transparent hover:text-gray-600"
+                  >
+                    Log In
+                  </Button>
+                </SignInButton>
+                <SignUpButton mode="modal">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="font-light text-gray-800 hover:bg-transparent hover:text-gray-600"
+                  >
+                    Sign Up
+                  </Button>
+                </SignUpButton>
+              </div>
             )}
           </div>
 
-          {/* Secondary CTA */}
-          <div className="mb-16">
-            <p className="text-center text-white/70">
-              Want to try a demo?{" "}
-              <Link href="/app" className="text-white hover:underline">
-                Try it now →
-              </Link>
-            </p>
-          </div>
+          {/* Sticky navbar that fades in on scroll */}
+          {showSticky && (
+            <div className="fixed top-4 left-1/2 z-20 w-[60%] max-w-2xl -translate-x-1/2 rounded-2xl border border-transparent bg-transparent px-2 py-1 backdrop-blur-md transition-all">
+              <div className="flex items-center justify-between">
+                {/* Logo */}
+                <Image
+                  src="/aud.png"
+                  alt="Heariffy logo"
+                  width={80}
+                  height={80}
+                  priority
+                  className="h-10 w-10 rounded-full object-cover"
+                />
 
-          {/* Bottom animated frequency bars */}
-          <div className="w-full max-w-sm rounded-xl bg-white/5 p-4 backdrop-blur-sm">
-            <AnimatedBars />
+                {/* Auth Buttons */}
+                {isSignedIn ? (
+                  <UserButton afterSignOutUrl="/" />
+                ) : (
+                  <div className="flex items-center space-x-3">
+                    <SignInButton mode="modal">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="font-light text-gray-800 hover:bg-transparent hover:text-gray-600"
+                      >
+                        Log In
+                      </Button>
+                    </SignInButton>
+                    <SignUpButton mode="modal">
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="font-light text-gray-800 hover:bg-transparent hover:text-gray-600"
+                      >
+                        Sign Up
+                      </Button>
+                    </SignUpButton>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Main content */}
+          <div className="flex min-h-screen flex-col items-center justify-center px-4">
+            {/* Main headline */}
+            <h1
+              className={`mt-50 mb-8 text-center text-7xl tracking-tight text-white md:text-8xl ${dancing.className} italic`}
+            >
+              Analyze audio with AI
+            </h1>
+
+            {/* Subtitle and CTA */}
+            <div className="mb-16 text-center">
+              <p
+                className={`mb-6 text-xl text-white italic md:text-2xl ${dancing.className}`}
+              >
+                Real-time sound classification powered by deep convolutional
+                neural networks.
+              </p>
+
+              {isSignedIn ? (
+                <Link href="/app">
+                  <Button
+                    size="lg"
+                    className="rounded-full border border-white bg-transparent px-8 py-3 text-white transition hover:bg-white/10"
+                  >
+                    Open Heariffy
+                  </Button>
+                </Link>
+              ) : (
+                <SignUpButton mode="modal">
+                  <Button
+                    size="lg"
+                    className="rounded-full border-white bg-white/10 text-white transition"
+                  >
+                    Download Heariffy
+                  </Button>
+                </SignUpButton>
+              )}
+            </div>
+
+            {/* Secondary CTA */}
+            <div className="mb-16">
+              <p className="text-center text-white/70">
+                Want to try a demo?{" "}
+                <Link href="/app" className="text-white hover:underline">
+                  Try it now →
+                </Link>
+              </p>
+            </div>
+
+            {/* Bottom animated frequency bars */}
+            <div className="w-full max-w-sm rounded-xl bg-white/5 p-4 backdrop-blur-sm">
+              <AnimatedBars />
+            </div>
           </div>
         </div>
       </div>
+      {/* White showcase section */}
+      <section className="bg-white py-24 text-center">
+        <h2 className="text-4xl font-semibold tracking-tight text-gray-900 md:text-5xl">
+          Heariffy is for Listening
+        </h2>
+        <p className="mt-4 text-gray-600 md:text-lg">
+          A partner in every audio workflow
+        </p>
+
+        <p className="mt-10 text-gray-700">
+          <span className="font-medium text-gray-900">
+            An extra set of ears
+          </span>{" "}
+          to always hit your quality bar
+        </p>
+
+        <div className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-3xl shadow-lg">
+          <Image
+            src="/aud.png"
+            alt="Demo screenshot"
+            width={800}
+            height={450}
+            className="w-full object-contain"
+          />
+        </div>
+      </section>
+    </>
+  );
+}
+
+// Snowfall component
+function Snowfall() {
+  const flakes = Array.from({ length: 10 });
+  return (
+    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+      {flakes.map((_, i) => (
+        <span
+          key={i}
+          className="absolute block h-1 w-1 rounded-full bg-white"
+          style={{
+            left: `${Math.random() * 100}%`,
+            animation: `snow-fall ${8 + Math.random() * 4}s linear infinite`,
+            animationDelay: `${Math.random() * 8}s`,
+          }}
+        />
+      ))}
     </div>
   );
 }
