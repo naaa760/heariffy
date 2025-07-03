@@ -298,11 +298,13 @@ export default function LandingPage() {
                 Start Getting Paid.
               </h2>
 
-              <p className="mb-8 text-lg leading-normal font-normal text-gray-800">
+              <p
+                className={`mb-8 text-xl leading-normal font-normal text-amber-800 ${dancing.className}`}
+              >
                 Hand off your revenue recovery to Joyful and see how easy it is
                 to reclaim you&apos;ve already earned.
               </p>
-              <Button className="rounded-md bg-yellow-400 px-6 py-3 text-base font-medium text-black hover:bg-yellow-500">
+              <Button className="rounded-md bg-yellow-500 px-6 py-3 text-base font-medium text-black hover:bg-yellow-300">
                 Get a Free Revenue Assessment
               </Button>
             </div>
