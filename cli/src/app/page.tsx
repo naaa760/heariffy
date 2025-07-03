@@ -264,6 +264,23 @@ export default function LandingPage() {
         {/* Black Snow overlay */}
         <BlackSnowfall />
 
+        {/* Top soft fade */}
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 z-10 h-20"
+          style={{
+            background:
+              "linear-gradient(to bottom, #FAF9F6 0%, transparent 100%)",
+          }}
+        ></div>
+
+        {/* Bottom soft fade */}
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-20"
+          style={{
+            background: "linear-gradient(to top, #FAF9F6 0%, transparent 100%)",
+          }}
+        ></div>
+
         {/* Dot grid background overlay */}
         <div
           className="pointer-events-none absolute inset-0 z-0"
